@@ -1,3 +1,5 @@
+import LogoImage from "./assets/investment-calculator-logo.png";
+
 function App() {
   return (
     <div className="app">
