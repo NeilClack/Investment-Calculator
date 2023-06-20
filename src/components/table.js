@@ -14,9 +14,9 @@ const InvestmentTable = (props) => {
           return (
             <tr key={record.year}>
               <td>{record.year}</td>
-              <td>{record.yearlyEarnings}</td>
+              <td>{parseFloat(record.yearlyEarnings).toFixed(2)}</td>
               <td>{record.totalContribution}</td>
-              <td>{record.savingsEoy}</td>
+              <td>{parseFloat(record.savingsEoy).toFixed(2)}</td>
             </tr>
           );
         })}
