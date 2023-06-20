@@ -1,6 +1,22 @@
+import styled from "styled-components";
+
+const Table = styled.table`
+border-collapse: collapse;
+margin: 0 1rem;
+`
+const TRow = styled.tr`
+
+`
+const TBody = styled.tbody`
+  ${TRow}:nth-child(even){
+    background-color: #c6ebf7;
+  }
+`
+
+
 const InvestmentTable = (props) => {
   return (
-    <table>
+    <Table>
       <thead>
         <tr>
           <th>Year</th>
@@ -9,19 +25,19 @@ const InvestmentTable = (props) => {
           <th>EOY Savings</th>
         </tr>
       </thead>
-      <tbody>
+      <TBody>
         {props.records.map((record) => {
           return (
-            <tr key={record.year}>
+            <TRow key={record.year}>
               <td>{record.year}</td>
               <td>{parseFloat(record.yearlyEarnings).toFixed(2)}</td>
               <td>{record.totalContribution}</td>
               <td>{parseFloat(record.savingsEoy).toFixed(2)}</td>
-            </tr>
+            </TRow>
           );
         })}
-      </tbody>
-    </table>
+      </TBody>
+    </Table>
   );
 };
 
