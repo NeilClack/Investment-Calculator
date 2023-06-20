@@ -2,15 +2,15 @@ import { useState } from "react";
 
 const UserForm = (props) => {
   const [investmentData, setInvestmentData] = useState({
-    currentSavings: 0,
-    yearlyContribution: 0,
-    expectedReturn: 0.0,
-    duration: 0,
+    currentSavings: null,
+    yearlyContribution: null,
+    expectedReturn: null,
+    duration: null,
   });
 
   const handleSubmission = (event) => {
     event.preventDefault();
-    console.log(investmentData);
+    props.onCalc(investmentData);
   };
 
   const handleChange = (target, value) => {
@@ -18,7 +18,7 @@ const UserForm = (props) => {
     setInvestmentData((prevData) => {
       return {
         ...prevData,
-        [target]: value,
+        [target]: +value,
       };
     });
     console.log(investmentData);
@@ -34,11 +34,11 @@ const UserForm = (props) => {
               id="currentSavings"
               min="0"
               type="number"
-              placeholder="1000"
               onChange={(event) => {
                 handleChange("currentSavings", event.target.value);
               }}
               value={investmentData.currentSavings}
+              required
             ></input>
           </div>
           <div className="fieldContainer">
@@ -47,27 +47,28 @@ const UserForm = (props) => {
               id="yearlyContribution"
               type="number"
               min="0"
-              placeholder="1000"
               onChange={(event) => {
                 handleChange("yearlyContribution", event.target.value);
               }}
               value={investmentData.yearlyContribution}
+              required
             ></input>
           </div>
         </div>
         <div className="rightContainer">
           <div className="fieldContainer">
-            <label htmlFor="expectedReturn">Interest Rate</label>
+            <label htmlFor="expectedReturn">Expected Return</label>
             <input
               id="expectedReturn"
               type="float"
               min="0"
               max="100"
-              placeholder="7.25"
+              step="0.01"
               onChange={(event) => {
                 handleChange("expectedReturn", event.target.value);
               }}
               value={investmentData.expectedReturn}
+              required
             ></input>
           </div>
           <div className="fieldContainer">
@@ -80,11 +81,11 @@ const UserForm = (props) => {
               min="1"
               max="100"
               step="1"
-              placeholder="10"
               onChange={(event) => {
                 handleChange("duration", event.target.value);
               }}
               value={investmentData.duration}
+              required
             ></input>
           </div>
         </div>
