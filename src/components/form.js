@@ -1,11 +1,40 @@
 import { useState } from "react";
+import styled from "styled-components";
+
+const StyledForm = styled.form`
+  margin: auto;
+  padding: 1rem;
+  text-align: left;
+`;
+
+const Fieldset = styled.fieldset`
+  border: 0;
+`;
+
+const Label = styled.label`
+  display: block;
+  margin: auto;
+  text-align: center;
+`;
+
+const Input = styled.input`
+  display: block;
+  margin: auto;
+  text-align: left;
+`;
+
+const FieldContainer = styled.div`
+  $.fieldContainer {
+    margin: 1rem;
+  }
+`
 
 const UserForm = (props) => {
   const [investmentData, setInvestmentData] = useState({
-    currentSavings: 0,
-    yearlyContribution: 0,
-    expectedReturn: 0.00,
-    duration: 0,
+    currentSavings: '',
+    yearlyContribution: '',
+    expectedReturn: '',
+    duration: '',
   });
 
   const handleSubmission = (event) => {
@@ -18,19 +47,19 @@ const UserForm = (props) => {
     setInvestmentData((prevData) => {
       return {
         ...prevData,
-        [target]: +value,
+        [target]: value,
       };
     });
     console.log(investmentData);
   };
 
   return (
-    <form onSubmit={handleSubmission}>
-      <fieldset>
+    <StyledForm onSubmit={handleSubmission}>
+      <Fieldset className="noBorder">
         <div className="leftContainer">
-          <div className="fieldContainer">
-            <label htmlFor="currentSavings">Current Savings ($)</label>
-            <input
+          <FieldContainer className="fieldContainer">
+            <Label htmlFor="currentSavings">Current Savings ($)</Label>
+            <Input
               id="currentSavings"
               min="0"
               type="number"
@@ -39,11 +68,11 @@ const UserForm = (props) => {
               }}
               value={investmentData.currentSavings}
               required
-            ></input>
-          </div>
+            ></Input>
+          </FieldContainer>
           <div className="fieldContainer">
-            <label htmlFor="yearlyContnribution">Yearly Contribution ($)</label>
-            <input
+            <Label htmlFor="yearlyContnribution">Yearly Contribution ($)</Label>
+            <Input
               id="yearlyContribution"
               type="number"
               min="0"
@@ -52,13 +81,13 @@ const UserForm = (props) => {
               }}
               value={investmentData.yearlyContribution}
               required
-            ></input>
+            ></Input>
           </div>
         </div>
         <div className="rightContainer">
           <div className="fieldContainer">
-            <label htmlFor="expectedReturn">Expected Return</label>
-            <input
+            <Label htmlFor="expectedReturn">Expected Return</Label>
+            <Input
               id="expectedReturn"
               type="float"
               min="0"
@@ -69,13 +98,13 @@ const UserForm = (props) => {
               }}
               value={investmentData.expectedReturn}
               required
-            ></input>
+            ></Input>
           </div>
           <div className="fieldContainer">
-            <label htmlFor="investmentDuration">
+            <Label htmlFor="investmentDuration">
               Investment Duration (Years)
-            </label>
-            <input
+            </Label>
+            <Input
               id="investmentDuration"
               type="number"
               min="1"
@@ -86,14 +115,14 @@ const UserForm = (props) => {
               }}
               value={investmentData.duration}
               required
-            ></input>
+            ></Input>
           </div>
         </div>
         <button type="submit" value="Submit">
           Submit
         </button>
-      </fieldset>
-    </form>
+      </Fieldset>
+    </StyledForm>
   );
 };
 

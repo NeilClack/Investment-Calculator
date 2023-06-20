@@ -32,11 +32,11 @@ function App() {
   };
 
   if (investmentData) {
-    let currentSavings = investmentData["currentSavings"];
-    const yearlyContribution = investmentData["yearlyContribution"];
-    const expectedReturn = investmentData["expectedReturn"] / 100;
-    const duration = investmentData["duration"];
-    let totalContributions = investmentData["currentSavings"];
+    let currentSavings = parseFloat(investmentData["currentSavings"]);
+    const yearlyContribution = parseFloat(investmentData["yearlyContribution"]);
+    const expectedReturn = parseFloat(investmentData["expectedReturn"]) / 100;
+    const duration = parseInt(investmentData["duration"]);
+    let totalContributions = parseFloat(investmentData["currentSavings"]);
     for (let i = 0; i < duration; i++) {
       const yearlyEarnings = currentSavings * expectedReturn;
       currentSavings += yearlyEarnings + yearlyContribution;
