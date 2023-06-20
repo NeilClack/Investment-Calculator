@@ -24,17 +24,23 @@ const Input = styled.input`
 `;
 
 const FieldContainer = styled.div`
-  $.fieldContainer {
-    margin: 1rem;
-  }
+  margin: 1rem;
+`;
+
+const SubmitButton = styled.button`
+margin: auto;
+`;
+
+const ButtonContainer = styled(FieldContainer)`
+text-align: center;
 `
 
 const UserForm = (props) => {
   const [investmentData, setInvestmentData] = useState({
-    currentSavings: '',
-    yearlyContribution: '',
-    expectedReturn: '',
-    duration: '',
+    currentSavings: "",
+    yearlyContribution: "",
+    expectedReturn: "",
+    duration: "",
   });
 
   const handleSubmission = (event) => {
@@ -57,7 +63,7 @@ const UserForm = (props) => {
     <StyledForm onSubmit={handleSubmission}>
       <Fieldset className="noBorder">
         <div className="leftContainer">
-          <FieldContainer className="fieldContainer">
+          <FieldContainer>
             <Label htmlFor="currentSavings">Current Savings ($)</Label>
             <Input
               id="currentSavings"
@@ -70,7 +76,7 @@ const UserForm = (props) => {
               required
             ></Input>
           </FieldContainer>
-          <div className="fieldContainer">
+          <div>
             <Label htmlFor="yearlyContnribution">Yearly Contribution ($)</Label>
             <Input
               id="yearlyContribution"
@@ -85,7 +91,7 @@ const UserForm = (props) => {
           </div>
         </div>
         <div className="rightContainer">
-          <div className="fieldContainer">
+          <div>
             <Label htmlFor="expectedReturn">Expected Return</Label>
             <Input
               id="expectedReturn"
@@ -100,7 +106,7 @@ const UserForm = (props) => {
               required
             ></Input>
           </div>
-          <div className="fieldContainer">
+          <div>
             <Label htmlFor="investmentDuration">
               Investment Duration (Years)
             </Label>
@@ -118,9 +124,11 @@ const UserForm = (props) => {
             ></Input>
           </div>
         </div>
-        <button type="submit" value="Submit">
-          Submit
-        </button>
+        <ButtonContainer>
+          <SubmitButton type="submit" value="Submit">
+            Submit
+          </SubmitButton>
+        </ButtonContainer>
       </Fieldset>
     </StyledForm>
   );
