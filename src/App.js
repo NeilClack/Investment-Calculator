@@ -4,23 +4,23 @@ import InvestmentTable from "./components/table";
 import styled from "styled-components";
 import { useState } from "react";
 
-const Main = styled.div `
-height: 100vh;
-width: 100%;
-margin: auto;
-text-align: center;
-`
+const Main = styled.div`
+  height: 100vh;
+  width: 100%;
+  margin: auto;
+  text-align: center;
+`;
 
 const Image = styled.img`
-height: 10rem;
-width: auto;
-`
+  height: 10rem;
+  width: auto;
+`;
 
 const Heading = styled.h1`
   margin: auto;
   text-align: center;
   padding: 1rem;
-  `
+`;
 
 function App() {
   const [investmentData, setInvestmentData] = useState(null);
