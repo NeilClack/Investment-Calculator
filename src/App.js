@@ -56,7 +56,7 @@ function App() {
       <Heading>Investment Calculator</Heading>
       <UserForm onCalc={calcHandler} />
       {records.length >= 1 ? (
-        <InvestmentTable className="userForm" records={records} />
+        <InvestmentTable records={records} />
       ) : (
         <p>Nothing to show</p>
       )}
