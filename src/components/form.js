@@ -2,10 +2,10 @@ import { useState } from "react";
 
 const UserForm = (props) => {
   const [investmentData, setInvestmentData] = useState({
-    currentSavings: null,
-    yearlyContribution: null,
-    expectedReturn: null,
-    duration: null,
+    currentSavings: 0,
+    yearlyContribution: 0,
+    expectedReturn: 0.00,
+    duration: 0,
   });
 
   const handleSubmission = (event) => {

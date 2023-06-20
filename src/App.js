@@ -1,15 +1,16 @@
 import LogoImage from "./assets/investment-calculator-logo.png";
 import UserForm from "./components/form";
+import InvestmentTable from "./components/table";
 import { useState } from "react";
 
 function App() {
   const [investmentData, setInvestmentData] = useState(null);
+  const records = [];
   const calcHandler = (investmentData) => {
     setInvestmentData(investmentData);
   };
 
   if (investmentData) {
-    const records = [];
     let currentSavings = investmentData["currentSavings"];
     const yearlyContribution = investmentData["yearlyContribution"];
     const expectedReturn = investmentData["expectedReturn"] / 100;
@@ -32,6 +33,7 @@ function App() {
       <img src={LogoImage} alt="logo"></img>
       <h1>Investment Calculator</h1>
       <UserForm onCalc={calcHandler} />
+      {(records.length >= 1) ? <InvestmentTable records={records}/> : <p>Nothing to show</p>}
     </div>
   );
 }
