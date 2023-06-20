@@ -2,9 +2,10 @@ import styled from "styled-components";
 
 const Table = styled.table`
   border-collapse: collapse;
-  margin: 0 1rem;
+  margin: auto;
 `;
 const TRow = styled.tr``;
+
 const TBody = styled.tbody`
   ${TRow}:nth-child(even) {
     background-color: #c6ebf7;
