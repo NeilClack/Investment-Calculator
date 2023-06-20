@@ -28,12 +28,12 @@ const FieldContainer = styled.div`
 `;
 
 const SubmitButton = styled.button`
-margin: auto;
+  margin: auto;
 `;
 
 const ButtonContainer = styled(FieldContainer)`
-text-align: center;
-`
+  text-align: center;
+`;
 
 const UserForm = (props) => {
   const [investmentData, setInvestmentData] = useState({
