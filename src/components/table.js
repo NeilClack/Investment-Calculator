@@ -5,7 +5,7 @@ const InvestmentTable = (props) => {
         <tr>
           <th>Year</th>
           <th>Year Earnings</th>
-          <th>Yearly Contribution</th>
+          <th>Total Contributions</th>
           <th>EOY Savings</th>
         </tr>
       </thead>
@@ -15,7 +15,7 @@ const InvestmentTable = (props) => {
             <tr key={record.year}>
               <td>{record.year}</td>
               <td>{record.yearlyEarnings}</td>
-              <td>{record.yearlyContribution}</td>
+              <td>{record.totalContribution}</td>
               <td>{record.savingsEoy}</td>
             </tr>
           );

@@ -15,14 +15,16 @@ function App() {
     const yearlyContribution = investmentData["yearlyContribution"];
     const expectedReturn = investmentData["expectedReturn"] / 100;
     const duration = investmentData["duration"];
+    let totalContributions = investmentData["currentSavings"];
     for (let i = 0; i < duration; i++) {
       const yearlyEarnings = currentSavings * expectedReturn;
       currentSavings += yearlyEarnings + yearlyContribution;
+      totalContributions += yearlyContribution;
       records.push({
         year: i + 1,
         yearlyEarnings: yearlyEarnings,
         savingsEoy: currentSavings,
-        yearlyContribution: yearlyContribution,
+        totalContribution: totalContributions,
       });
     }
     console.log(records);
