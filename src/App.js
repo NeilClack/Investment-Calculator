@@ -1,8 +1,14 @@
 import LogoImage from "./assets/investment-calculator-logo.png";
 import UserForm from "./components/form";
+import { useState } from "react";
 
 function App() {
+  const [investmentData, setInvestmentData] = useState(null);
   const calcHandler = (investmentData) => {
+    setInvestmentData(investmentData);
+  };
+
+  if (investmentData) {
     const records = [];
     let currentSavings = investmentData["currentSavings"];
     const yearlyContribution = investmentData["yearlyContribution"];
@@ -19,7 +25,8 @@ function App() {
       });
     }
     console.log(records);
-  };
+  }
+
   return (
     <div className="app">
       <img src={LogoImage} alt="logo"></img>
