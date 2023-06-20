@@ -12,7 +12,6 @@ text-align: center;
 `
 
 const Image = styled.img`
-margin-top: 4rem;
 height: 10rem;
 width: auto;
 `
